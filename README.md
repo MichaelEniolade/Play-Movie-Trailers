@@ -11,7 +11,7 @@ wisdomeniolade@gmail.com, wisdomeniolade@hotmail.com
 
 <h3>How to implement the application on your personal computer:</h3>
 
-1. Download the contents of the repository. You can do this by going to the following URL and clicking 'Download ZIP': https://github.com/MichaelEniolade/movies.git
+1. Download the contents of the repository. You can do this by going to the following URL and clicking 'Download ZIP': https://github.com/MichaelEniolade/Play-Movie-Trailers.git
 
 2. Extract the files from the Zip file to a singular folder on your computer.
 
