@@ -1,0 +1,238 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Georgia|Times">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+              }
+		
+		#movie-title {
+			font-family: 'Georgia', serif;
+			color: white;
+			background-color: grey;
+		}
+		
+		#movie-storyline {
+			font-family: 'Times', serif;
+		}
+                
+                
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+
+         // jQuery initializer for Bootstrap tooltip
+        
+        $(document).ready(function() {
+			$('[data-toggle="tooltip"]').tooltip({html: true});
+		});
+		
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-6 movie-tile text-center" 
+data-trailer-youtube-id="viJsYmYOZgY" 
+data-toggle="modal" data-target="#trailer"
+data-toggle="tooltip" title="Release Date: July 24, 2015
+Director(s): Luc Besson
+Starring: Scarlett Johansson, Morgan Freeman, Min-sik Choi">
+    <img src="https://upload.wikimedia.org/wikipedia/en/1/14/Lucy_(2014_film)_poster.jpg" width="220" height="342">
+    <div id="movie-info">
+		<h2>
+		<div id="movie-title">Lucy</div>
+		</h2>
+		<h4>
+		<div id="movie-storyline">In the opening shot, we see a cell split up into multiple other cells.
+                       Then we see a proto-human in prehistoric times drinking from a lake.</div>
+		</h4>
+	</div>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" 
+data-trailer-youtube-id="-JNVtorI3vw" 
+data-toggle="modal" data-target="#trailer"
+data-toggle="tooltip" title="Release Date: December 10, 2001
+Director(s): Peter Jackson
+Starring: Viggo Mortensen, Sean Astin, Cate Blanchett">
+    <img src="http://www.darkcarnival.co.za/wp-content/uploads/2015/11/lord-of-the-rings-two-towers-11.jpg" width="220" height="342">
+    <div id="movie-info">
+		<h2>
+		<div id="movie-title">Lord of the ring</div>
+		</h2>
+		<h4>
+		<div id="movie-storyline">It seems that the Ring originally belonged to Sauron, the Dark Lord.
+			          Sauron wants the Ring back so that he can conquer the world.</div>
+		</h4>
+	</div>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" 
+data-trailer-youtube-id="SL37UPUcEd0" 
+data-toggle="modal" data-target="#trailer"
+data-toggle="tooltip" title="Release Date: April 6, 2009
+Director(s): J.J. Abrams
+Starring: Roberto Orci, Alex Kurtzman">
+    <img src="http://www.monstersandcritics.com/wp-content/uploads/2015/11/star_trek_the_original_series_by_1darthvader-d6ecswd.jpg" width="220" height="342">
+    <div id="movie-info">
+		<h2>
+		<div id="movie-title">Star Trek</div>
+		</h2>
+		<h4>
+		<div id="movie-storyline">In the year 2233 a Federation starship, USS Kelvin, investigates a "lightning storm"
+                           in space, which the crew soon realizes is a black hole...</div>
+		</h4>
+	</div>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" 
+data-trailer-youtube-id="QheoYw1BKJ4" 
+data-toggle="modal" data-target="#trailer"
+data-toggle="tooltip" title="Release Date: April 10, 2014
+Director(s): Wally Pfister
+Starring: Rebecca Hall, Morgan Freeman, Cillian Murphy">
+    <img src="http://i.jeded.com/i/transcendence.29748.jpg" width="220" height="342">
+    <div id="movie-info">
+		<h2>
+		<div id="movie-title">Transcendence</div>
+		</h2>
+		<h4>
+		<div id="movie-storyline">Dr. Will Caster (Johnny Depp) is the foremost researcher in the field of Artificial Intelligence,
+			        working to create a sentient machine that combines the collective intelligence of everything ever known with the full range of human emotions.</div>
+		</h4>
+	</div>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" 
+data-trailer-youtube-id="aoyV49FfjOU" 
+data-toggle="modal" data-target="#trailer"
+data-toggle="tooltip" title="Release Date: July 2, 1997
+Director(s): Barry Sonnenfeld
+Starring: Lee Jones, K. Jemaine Clement">
+    <img src="http://www.sonypictures.com/movies/meninblack3/assets/images/onesheet.jpg" width="220" height="342">
+    <div id="movie-info">
+		<h2>
+		<div id="movie-title">Men in black</div>
+		</h2>
+		<h4>
+		<div id="movie-storyline">The Men in Black are a secret law-enforcement agency
+                              that is responsible for policing the extraterrestrial life hidden on Earth...</div>
+		</h4>
+	</div>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" 
+data-trailer-youtube-id="qbg99ykA2bk" 
+data-toggle="modal" data-target="#trailer"
+data-toggle="tooltip" title="Release Date: July 27, 2015
+Director(s): Brian De Palma
+Starring: Ving Rhames, Kristin Scott Thomas">
+    <img src="https://i.ytimg.com/vi/bsEYtBGS6ho/maxresdefault.jpg" width="220" height="342">
+    <div id="movie-info">
+		<h2>
+		<div id="movie-title">Mission impossible</div>
+		</h2>
+		<h4>
+		<div id="movie-storyline">Ethan Hunt (Tom Cruise) is an agent and "point man"
+			            of an Impossible Missions Force (IMF) team, an unofficial branch of the CIA</div>
+		</h4>
+	</div>
+</div>
+
+    </div>
+  </body>
+</html>
